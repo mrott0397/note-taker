@@ -5,7 +5,7 @@ const notesRoute = require('./notes');
 
 const app = express();
 
-app.use('/html', htmlRoute);
+app.use('/', htmlRoute);
 app.use('/notes', notesRoute);
 
 module.exports = app;
