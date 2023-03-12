@@ -1,10 +1,10 @@
 const notes = require('express').Router();
 const path = require('path');
-const{v4:uuid4} = require('uuid');
+const{ v4: uuid4 } = require('uuid');
 
 const fs = require('fs');
 
-
+// get notes
 notes.get('/notes', (req, res) => {
     fs.readFile(path.resolve(__dirname, '..', 'db/db.json'), 'utf8', (err, data) => {
         if (err) console.log(err);
@@ -12,10 +12,11 @@ notes.get('/notes', (req, res) => {
     });
 });
 
+// save notes
 notes.post('/notes', (req, res) => {
     console.log('here');
     if(req.body) {
-        const {title, text } = req.body;
+        const { title, text } = req.body;
         const newNote = {
             title,
             text,
